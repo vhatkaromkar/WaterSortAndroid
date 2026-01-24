@@ -1,21 +1,46 @@
 
 plugins {
     id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
 }
 
 android {
-    namespace 'com.example.watersort'
-    compileSdk 34
+    namespace "com.example.watersort"  // Fixes the package warning
+    compileSdkVersion 34               // Update to your target SDK if needed
 
     defaultConfig {
         applicationId "com.example.watersort"
-        minSdk 21
-        targetSdk 34
+        minSdkVersion 24               // Adjust as needed
+        targetSdkVersion 34            // Update as needed
         versionCode 1
         versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17   // Compatible with JDK 21
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    buildFeatures {
+        viewBinding true   // Optional, if you want view binding
+    }
+
+    lint {
+        // Optional: Create a baseline to suppress existing lint errors
+        baseline file("lint-baseline.xml")
     }
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.7.0'         // AppCompat
+    implementation 'com.google.android.material:material:1.9.0' // Material Design
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1' // Fix missing ConstraintLayout
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.6'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
