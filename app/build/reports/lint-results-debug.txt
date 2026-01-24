@@ -1,0 +1,65 @@
+/home/a/AndroidStudioProjects/WaterSortAndroid_BuildReady/app/src/main/res/layout/activity_main.xml:2: Error: Class referenced in the layout file, androidx.constraintlayout.widget.ConstraintLayout, was not found in the project or the libraries [MissingClass]
+<androidx.constraintlayout.widget.ConstraintLayout
+^
+
+   Explanation for issues of type "MissingClass":
+   If a class is referenced in the manifest or in a layout file, it must also
+   exist in the project (or in one of the libraries included by the project.
+   This check helps uncover typos in registration names, or attempts to rename
+   or move classes without updating the XML references properly.
+
+   https://developer.android.com/guide/topics/manifest/manifest-intro.html
+
+/home/a/AndroidStudioProjects/WaterSortAndroid_BuildReady/app/src/main/res/values/styles.xml:3: Error: Style Theme.AppCompat.Light.NoActionBar should not extend itself [ResourceCycle]
+    <style name="Theme.AppCompat.Light.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar"/>
+                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ResourceCycle":
+   There should be no cycles in resource definitions as this can lead to
+   runtime exceptions.
+
+/home/a/AndroidStudioProjects/WaterSortAndroid_BuildReady/app/build.gradle:13: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
+        targetSdk 34
+        ~~~~~~~~~~~~
+
+   Explanation for issues of type "OldTargetApi":
+   When your application runs on a version of Android that is more recent than
+   your targetSdkVersion specifies that it has been tested with, various
+   compatibility modes kick in. This ensures that your application continues
+   to work, but it may look out of place. For example, if the targetSdkVersion
+   is less than 14, your app may get an option button in the UI.
+
+   To fix this issue, set the targetSdkVersion to the highest available value.
+   Then test your app to make sure everything works correctly. You may want to
+   consult the compatibility notes to see what changes apply to each version
+   you are adding support for:
+   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
+   as well as follow this guide:
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.
+   html
+
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+/home/a/AndroidStudioProjects/WaterSortAndroid_BuildReady/app/build.gradle:20: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1 [GradleDependency]
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+/home/a/AndroidStudioProjects/WaterSortAndroid_BuildReady/app/src/main/AndroidManifest.xml:5: Warning: Should explicitly set android:icon, there is no default [MissingApplicationIcon]
+    <application
+     ~~~~~~~~~~~
+
+   Explanation for issues of type "MissingApplicationIcon":
+   You should set an icon for the application as whole because there is no
+   default. This attribute must be set as a reference to a drawable resource
+   containing the image (for example @drawable/icon).
+
+   https://developer.android.com/studio/publish/preparing#publishing-configure
+
+2 errors, 3 warnings
